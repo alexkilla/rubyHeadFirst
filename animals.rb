@@ -1,46 +1,50 @@
+# Top level comment
 class Animal
+
   attr_reader :name, :age
-
-  def name=(name)
-    if (name == "")
-      raise "Invalid name for a Dog."
-    else
-      @name = name
-    end
-  end
-
-  def age=(age)
-    if (age<0)
-      raise "Invalid age, we need something bigger than 0"
-    else
-      @age = age
-    end
-  end
 
   def talk
     puts "#{@name} says Bark!!"
   end
 
   def move(destination)
-    puts "#{name} running to the #{destination}."
+    puts "#{name} runs to the #{destination}."
   end
 
   def report_age
     puts "#{@name} is #{@age} years old."
   end
+
+  # We just define attr_reader up there and we write attr_writer ourselves
+  # Investigate if this code can be collapsed or make better readability.
+  # Getter and setters
+  def name=(name)
+    raise 'Invalid name for a Dog.' if name == ''
+    @name = name
+  end
+
+  def age=(age)
+    raise 'Invalid age, we need something bigger than 0' if age < 0
+    @age = age
+  end
+
+end
+
+# Top level comment
+class Armadillo < Animal
+  def move(destination)
+    puts "#{@name} unrolls!!"
+    super
+  end
 end
 
 class Dog < Animal
+  def to_s
+    "#{@name} the dog, age #{@age}"
+  end
 end
 
 class Bird < Animal
-  def talk
-    puts "Chirp Chirp!!"
-  end
-
-  def move(destination)
-    puts "Flying to the #{destination}."
-  end
 end
 
 class Cat < Animal
