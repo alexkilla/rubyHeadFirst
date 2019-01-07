@@ -1,0 +1,16 @@
+---
+1: !ruby/object:Movie
+  title: 'Spirited away '
+  director: Hayao Miyazaki
+  year: '1998'
+  id: 1
+2: !ruby/object:Movie
+  title: Jaws
+  director: Spielbero
+  year: '1998'
+  id: 2
+3: !ruby/object:Movie
+  title: Olita
+  director: NewDirector
+  year: '2018'
+  id: 3
